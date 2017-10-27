@@ -1,0 +1,21 @@
+$mainBg: #00b7f3;
+$textOnMainBg: #fff;
+nav {
+    .navbar-brand {
+        color: $textOnMainBg;
+        font-size: 1.5rem;
+        span {
+            font-size: 1.2rem;
+        }
+        img {
+            width: 30px;
+            height: 30px;
+        }
+    }
+    background-color: $mainBg;
+    li {
+        a {
+            color: $textOnMainBg;
+        }
+    }
+}
