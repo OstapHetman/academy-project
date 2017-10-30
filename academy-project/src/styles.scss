@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+
+$activeBg: #00b7f3;
+.active {
+    background-color: $activeBg;
+    border-left: 4px #f09d41 solid;
+}
+
+.active a {
+    text-decoration: none;
+}

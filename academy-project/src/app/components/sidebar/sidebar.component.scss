@@ -32,10 +32,6 @@ $activeBg: #00b7f3;
                 list-style: none;
                 padding: 15px 0px 15px 25px;
                 width: 100%;
-                &.active {
-                    background-color: $activeBg;
-                    border-left: 4px #f09d41 solid;
-                }
                 i {
                     font-size: 1.5rem;
                     padding-right: 1em;
@@ -44,6 +40,10 @@ $activeBg: #00b7f3;
                 a {
                     color: #fff;
                     font-size: 1.1rem;
+                    &:hover {
+                        text-decoration: none;
+                        font-weight: 500;
+                    }
                 }
             }
         }

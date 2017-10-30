@@ -6,11 +6,11 @@
     </div>
     <div class="menu">
         <ul>
-            <li class="active"><a href=""><i class="fa fa-user-md" aria-hidden="true"></i> My Profile</a></li>
-            <li><a href=""><i class="fa fa-database" aria-hidden="true"></i> Patients</a></li>
-            <li><a href=""><i class="fa fa-edit" aria-hidden="true"></i> New Analysis</a></li>
-            <li><a href=""><i class="fa fa-list-alt" aria-hidden="true"></i> To Do Manager</a></li>
-            <li><a href=""><i class="fa fa-comment" aria-hidden="true"></i> Chat</a></li>
+            <li routerLinkActive="active"><a href="#" [routerLink]="['/dashboard', {outlets: {content: ['my-profile']}}]"><i class="fa fa-user-md" aria-hidden="true"></i> My Profile</a></li>
+            <li routerLinkActive="active"><a href="#" [routerLink]="['/dashboard', {outlets: {content: ['patients']}}]"><i class="fa fa-database" aria-hidden="true"></i> Patients</a></li>
+            <li><a><i class="fa fa-edit" aria-hidden="true"></i> New Analysis</a></li>
+            <li><a><i class="fa fa-list-alt" aria-hidden="true"></i> To Do Manager</a></li>
+            <li><a><i class="fa fa-comment" aria-hidden="true"></i> Chat</a></li>
         </ul>
     </div>
 </div>
