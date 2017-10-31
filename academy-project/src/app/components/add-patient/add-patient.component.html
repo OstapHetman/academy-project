@@ -1,0 +1,59 @@
+<div class="row">
+    <div class="col-md-6">
+        <a href="#" [routerLink]="['/dashboard', {outlets: {content: ['patients']}}]">Back to Patients</a>
+    </div>
+</div>
+<div class="card">
+    <div class="card-header">
+        Add new Patient
+    </div>
+    <div class="card-block">
+        <form novalidate #f="ngForm" (ngSubmit)="onSubmit(f)">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="firstName">FirstName *</label>
+                        <input type="text" class="form-control" name="firstName" [(ngModel)]="patient.firstName" #patientFirstName="ngModel" minlength="2" required>
+                        <div *ngIf="patientFirstName.errors?.minlength && patientFirstName.touched" class="alert alert-danger">
+                            FirstName is required
+                        </div>
+                        <div *ngIf="patientFirstName.errors?.minlength && patientFirstName.touched" class="alert alert-danger">
+                            Must be at least 2 characters
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="lastName">LastName *</label>
+                        <input type="text" class="form-control" name="lastName" [(ngModel)]="patient.lastName" #patientLastName="ngModel" minlength="2" required>
+                        <div *ngIf="patientLastName.errors?.minlength && patientLastName.touched" class="alert alert-danger">
+                            LastName is required
+                        </div>
+                        <div *ngIf="patientLastName.errors?.minlength && patientLastName.touched" class="alert alert-danger">
+                            Must be at least 10 characters
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="ssn">SSN *</label>
+                <input type="text" class="form-control" name="ssn" [(ngModel)]="patient.ssn" #patientSsn="ngModel" minlength="10" required>
+                <div *ngIf="patientSsn.errors?.minlength && patientSsn.touched" class="alert alert-danger">
+                    LastName is required
+                </div>
+                <div *ngIf="patientSsn.errors?.minlength && patientSsn.touched" class="alert alert-danger">
+                    Must be at least 2 characters
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="mediacalState">Mediacal State</label>
+                <input type="text" class="form-control" name="mediacalState" [(ngModel)]="patient.mediacalState" #patientMediacalState="ngModel">
+            </div>
+            <input type="submit" class="btn btn-primary btn-block" value="Submit">
+        </form>
+    </div>
+</div>
+<!-- #f="ngForm" (ngSubmit)="onSubmit(f)" -->

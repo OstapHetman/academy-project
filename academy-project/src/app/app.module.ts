@@ -2,6 +2,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from "@angular/router";
+import { FormsModule } from '@angular/forms';
 
 // AngularFire Imports
 import { Observable } from 'rxjs/Observable';
@@ -19,16 +20,19 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { PatientsComponent } from './components/patients/patients.component';
 import { DoctorProfileComponent } from './components/doctor-profile/doctor-profile.component';
+import { AddPatientComponent } from './components/add-patient/add-patient.component'
 
 // Service Imports
-import { PatientService } from './services/patient.service'
+import { PatientService } from './services/patient.service';
+
 
 const routes: Routes = [
   { path: '', component: SliderComponent },
   { path: 'dashboard', component: DashboardComponent,
   children: [
     { path: 'my-profile', component: DoctorProfileComponent, outlet: 'content'},
-    { path: 'patients', component: PatientsComponent, outlet: 'content' }
+    { path: 'patients', component: PatientsComponent, outlet: 'content' },
+    { path: 'add-patient', component: AddPatientComponent, outlet: 'content' }
   ]}
   // { path: 'new-analysis', component: PatientsComponent },
   // { path: 'patients', component: PatientsComponent },
@@ -55,7 +59,8 @@ const routes: Routes = [
     RegistrationComponent,
     DashboardComponent,
     PatientsComponent,
-    DoctorProfileComponent
+    DoctorProfileComponent,
+    AddPatientComponent
   ],
   imports: [
     BrowserModule,
@@ -63,6 +68,7 @@ const routes: Routes = [
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
+    FormsModule
   ],
   providers: [AngularFireAuth,AngularFireDatabase,PatientService],
   bootstrap: [AppComponent]
