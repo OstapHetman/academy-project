@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-md-6">
-        <a href="#" [routerLink]="['/dashboard', {outlets: {content: ['patients']}}]">Back to Patients</a>
+        <a href="#" [routerLink]="['/dashboard', {outlets: {content: ['patients']}}]"><i class="fa fa-undo" aria-hidden="true"></i> Back to Patients</a>
     </div>
 </div>
 <div class="card">
@@ -55,7 +55,7 @@
 
             <div class="form-group">
                 <label for="carePlan">Care Plan</label>
-                <textarea class="form-control" rows="10" cols="45" name="carePlan" [(ngModel)]="patient.carePlan"></textarea>
+                <textarea class="form-control" cols="20" name="carePlan" [(ngModel)]="patient.carePlan"></textarea>
             </div>
 
             <input type="submit" class="btn btn-primary btn-block" value="Submit">

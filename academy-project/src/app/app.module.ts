@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from "@angular/router";
 import { FormsModule } from '@angular/forms';
+import { FlashMessagesModule } from 'angular2-flash-messages';
 
 // AngularFire Imports
 import { Observable } from 'rxjs/Observable';
@@ -68,7 +69,8 @@ const routes: Routes = [
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    FormsModule
+    FormsModule,
+    FlashMessagesModule
   ],
   providers: [AngularFireAuth,AngularFireDatabase,PatientService],
   bootstrap: [AppComponent]

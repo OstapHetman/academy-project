@@ -25,7 +25,7 @@
     <tbody>
         <tr *ngFor="let patient of patients">
             <td>{{patient.$key}}</td>
-            <td><img class="rounded-circle patient-photo" src="../../assets/img/patient1.jpg" alt=""> {{patient.firstName}} {{patient.lastName}} </td>
+            <td class="text-left"><img class="rounded-circle patient-photo" src="../../assets/img/patient1.jpg" alt=""> {{patient.firstName}} {{patient.lastName}} </td>
             <td>{{patient.ssn}} </td>
             <td>{{patient.mediacalState}} </td>
             <td>{{patient.carePlan}} </td>

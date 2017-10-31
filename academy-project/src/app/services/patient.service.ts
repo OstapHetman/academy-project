@@ -13,4 +13,7 @@ export class PatientService {
    getPatients(){
     return this.patients;
   }
+  newPatient(patient: Patient) {
+    this.patients.push(patient);
+  }
 }

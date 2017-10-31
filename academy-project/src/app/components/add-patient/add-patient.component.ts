@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { PatientService } from './../../services/patient.service';
 import { Router } from '@angular/router';
 import { Patient } from '../../models/Patient';
+import { FlashMessagesService } from 'angular2-flash-messages';
+
 
 @Component({
   selector: 'app-add-patient',
@@ -14,12 +16,28 @@ export class AddPatientComponent implements OnInit {
     firstName:'',
     lastName:'',
     ssn: 1234567890,
-    mediacalState:''
+    mediacalState:'',
+    carePlan:''
   }
 
-  constructor() { }
+  constructor(
+    public flashMessagesService: FlashMessagesService,
+    public router: Router,
+    public patientService: PatientService,
+  ) { }
 
   ngOnInit() {
   }
+  onSubmit({value, valid}: {value:Patient, valid:boolean}) {
+    if(!valid) {
+      this.flashMessagesService.show('Please fill in all fields', {cssClass:'alert-danger',timeout:4000});
+      this.router.navigate(['/dashboard', {outlets: {content: 'add-patient'}}]);
+    } else {
+      // Add new client
+      this.patientService.newPatient(value);
+      this.flashMessagesService.show('New patient added', {cssClass:'alert-success',timeout:4000});
+      this.router.navigate(['/dashboard', {outlets: {content: ['patients']}}]);
+    }
+    }
 
 }
