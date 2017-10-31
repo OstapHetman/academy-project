@@ -50,8 +50,14 @@
 
             <div class="form-group">
                 <label for="mediacalState">Mediacal State</label>
-                <input type="text" class="form-control" name="mediacalState" [(ngModel)]="patient.mediacalState" #patientMediacalState="ngModel">
+                <input type="text" class="form-control" name="mediacalState" [(ngModel)]="patient.mediacalState">
             </div>
+
+            <div class="form-group">
+                <label for="carePlan">Care Plan</label>
+                <textarea class="form-control" rows="10" cols="45" name="carePlan" [(ngModel)]="patient.carePlan"></textarea>
+            </div>
+
             <input type="submit" class="btn btn-primary btn-block" value="Submit">
         </form>
     </div>

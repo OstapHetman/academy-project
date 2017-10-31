@@ -1,7 +1,8 @@
 $mainBg: rgb(2, 136, 209);
 $activeBg: #00b7f3;
 .sidebar {
-    height: 91vh;
+    min-height: 91vh;
+    height: 100%;
     background: $mainBg;
     padding-left: 0px;
     box-shadow: 5px 0 5px -5px #333;
