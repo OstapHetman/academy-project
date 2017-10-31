@@ -1,3 +1,4 @@
+<h5 class="float-left">Total Patients: {{totalPatients}}</h5>
 <form class="bd-search hidden-sm-down float-right">
     <input type="text" class="form-control" id="search-input" placeholder="Search..." autocomplete="off">
     <div class="dropdown-menu bd-search-results" id="search-results"></div>
@@ -14,28 +15,12 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td><img class="rounded-circle patient-photo" src="../../assets/img/patient1.jpg" alt=""> Elsa Herrera</td>
-            <td>296173091</td>
-            <td>Good</td>
-            <td>Light Weight Excersice</td>
-            <td><i class="fa fa-trash-o" aria-hidden="true"></i></td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td><img class="rounded-circle patient-photo" src="../../assets/img/patient1.jpg" alt=""> Elsa Herrera</td>
-            <td>296173091</td>
-            <td>Serious</td>
-            <td>Light Weight Excersice</td>
-            <td><i class="fa fa-trash-o" aria-hidden="true"></i></td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td><img class="rounded-circle patient-photo" src="../../assets/img/patient1.jpg" alt=""> Elsa Herrera</td>
-            <td>296173091</td>
-            <td>Fair</td>
-            <td>Light Weight Excersice</td>
+        <tr *ngFor="let patient of patients">
+            <td>{{patient.$key}}</td>
+            <td><img class="rounded-circle patient-photo" src="../../assets/img/patient1.jpg" alt=""> {{patient.firstName}} {{patient.lastName}} </td>
+            <td>{{patient.ssn}} </td>
+            <td>{{patient.mediacalState}} </td>
+            <td>{{patient.carePlan}} </td>
             <td><i class="fa fa-trash-o" aria-hidden="true"></i></td>
         </tr>
     </tbody>
