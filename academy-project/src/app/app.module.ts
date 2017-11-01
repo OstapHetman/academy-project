@@ -25,6 +25,7 @@ import { AddPatientComponent } from './components/add-patient/add-patient.compon
 
 // Service Imports
 import { PatientService } from './services/patient.service';
+import { PatientDetailsComponent } from './components/patient-details/patient-details.component';
 
 
 const routes: Routes = [
@@ -33,11 +34,9 @@ const routes: Routes = [
   children: [
     { path: 'my-profile', component: DoctorProfileComponent, outlet: 'content'},
     { path: 'patients', component: PatientsComponent, outlet: 'content' },
-    { path: 'add-patient', component: AddPatientComponent, outlet: 'content' }
+    { path: 'add-patient', component: AddPatientComponent, outlet: 'content' },
+    { path: 'patient/:id', component: PatientDetailsComponent, outlet: 'content' }
   ]}
-  // { path: 'new-analysis', component: PatientsComponent },
-  // { path: 'patients', component: PatientsComponent },
-  // { path: 'patients', component: PatientsComponent }
  ];
 
  const firebaseConfig = {
@@ -61,7 +60,8 @@ const routes: Routes = [
     DashboardComponent,
     PatientsComponent,
     DoctorProfileComponent,
-    AddPatientComponent
+    AddPatientComponent,
+    PatientDetailsComponent
   ],
   imports: [
     BrowserModule,

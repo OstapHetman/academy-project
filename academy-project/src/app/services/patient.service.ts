@@ -16,4 +16,8 @@ export class PatientService {
   newPatient(patient: Patient) {
     this.patients.push(patient);
   }
+  getPatient(id:string) {
+    this.patient = this.db.object('/patients/'+id) as FirebaseObjectObservable<Patient>;
+    return this.patient;
+    }
 }

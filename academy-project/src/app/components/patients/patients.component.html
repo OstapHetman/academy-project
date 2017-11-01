@@ -29,7 +29,9 @@
             <td>{{patient.ssn}} </td>
             <td>{{patient.mediacalState}} </td>
             <td>{{patient.carePlan}} </td>
-            <td><i class="fa fa-trash-o" aria-hidden="true"></i></td>
+            <td><i class="fa fa-trash-o" aria-hidden="true"></i>
+                <a href="#" class="btn" [routerLink]="['/dashboard', {outlets: {content: 'patient/'+patient.$key}}]"> <i class="fa fa-info-circle" aria-hidden="true"></i></a>
+            </td>
         </tr>
     </tbody>
 </table>
