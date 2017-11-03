@@ -27,4 +27,5 @@ export class PatientsComponent implements OnInit {
     this.totalPatients = total;
     console.log(this.patients.length);
   }
+  
 }

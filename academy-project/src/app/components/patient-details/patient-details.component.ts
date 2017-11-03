@@ -11,7 +11,14 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 })
 export class PatientDetailsComponent implements OnInit {
   id: string;
-  patient: Patient;
+  patient: Patient= {
+    firstName:'',
+    lastName:'',
+    ssn: 0,
+    mediacalState:'',
+    carePlan:''
+  }
+
 
   constructor(
     public patientService: PatientService,
@@ -21,14 +28,29 @@ export class PatientDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // GetId
     this.id = this.route.snapshot.params['id'];
-    // Get Client
     this.patientService.getPatient(this.id).subscribe(patient =>{
-    
-      this.patient = patient;  
-      console.log(this.patient);
-    });
+        this.patient = patient;  
+      });
   }
+  onDeleteClick() {
+    if(confirm("Are you sure to delete?")){
+      this.patientService.deletePatient(this.id);
+      this.flashMessagesService.show('Patient Deleted', {cssClass: 'alert-success', timeout: 4000});
+      this.router.navigate(['/dashboard', {outlets: {content: ['patients']}}]);
+    }
+  }
+  onSubmit({value, valid}: {value:Patient, valid:boolean}) {
+    if(!valid) {
+      this.flashMessagesService.show('Please fill in all fields', {cssClass:'alert-danger',timeout:4000});
+      this.router.navigate(['/dashboard', {outlets: {content: 'patient/'+this.patient.$key}}]);
+    } else {
+      // Update client
+      this.patientService.updatePatient(this.id,value);
+      this.flashMessagesService.show('Patient update', {cssClass:'alert-success',timeout:4000});
+      this.router.navigate(['/dashboard', {outlets: {content: ['patients']}}]);
+    }
+  }
+
 
 }

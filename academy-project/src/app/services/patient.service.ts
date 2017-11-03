@@ -20,4 +20,10 @@ export class PatientService {
     this.patient = this.db.object('/patients/'+id) as FirebaseObjectObservable<Patient>;
     return this.patient;
     }
+    deletePatient (id: string) {
+      return this.patients.remove(id);
+      }
+  updatePatient(id: string, patient: Patient) {
+    return this.patients.update(id, patient);
+  }
 }
