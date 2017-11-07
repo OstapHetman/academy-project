@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PatientService } from './../../services/patient.service';
+import { Title } from "@angular/platform-browser";
 import { Router } from '@angular/router';
 import { Patient } from '../../models/Patient';
 import { FlashMessagesService } from 'angular2-flash-messages';
@@ -24,9 +25,11 @@ export class AddPatientComponent implements OnInit {
     public flashMessagesService: FlashMessagesService,
     public router: Router,
     public patientService: PatientService,
+    private _titleService: Title
   ) { }
 
   ngOnInit() {
+    this._titleService.setTitle('HealthCare | Add patient');
   }
   onSubmit({value, valid}: {value:Patient, valid:boolean}) {
     if(!valid) {

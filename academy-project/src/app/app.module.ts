@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from "@angular/router";
 import { FormsModule } from '@angular/forms';
 import { FlashMessagesModule } from 'angular2-flash-messages';
+import { Title } from '@angular/platform-browser';
 
 // AngularFire Imports
 import { Observable } from 'rxjs/Observable';
@@ -74,7 +75,7 @@ const routes: Routes = [
     FormsModule,
     FlashMessagesModule
   ],
-  providers: [AngularFireAuth,AngularFireDatabase,PatientService,AuthService],
+  providers: [AngularFireAuth,AngularFireDatabase,PatientService,AuthService,Title],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
