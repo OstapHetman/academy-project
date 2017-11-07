@@ -15,4 +15,13 @@ export class AuthService {
     });
   }
 
+  // Check User status
+   getAuth() {
+    return this.afAuth.authState.map(auth => auth);
+  }
+  // Logout User
+  logout() {
+    this.afAuth.auth.signOut();
+  }
+
 }

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router} from '@angular/router';
 import { AuthService } from '../../services/auth.service'; 
+import { FlashMessagesService } from 'angular2-flash-messages';
+import * as $ from "jquery";
+
 
 @Component({
   selector: 'app-login',
@@ -15,7 +17,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router,
-    private flashMessagesService: FlashMessagesService
+    private _flashMessagesService: FlashMessagesService
   ) { }
 
   ngOnInit() {
@@ -23,11 +25,11 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.authService.login(this.email, this.password)
     .then((res) => {
-      this.flashMessagesService.show('You are logged in', {cssClass: 'alert-success', timeout: 3000});
       this.router.navigate(['/dashboard']);
+      $('#exampleModalLong').hide();
+      $('.modal-backdrop.show').removeClass();
     })
     .catch((err) => {
-      this.flashMessagesService.show(err.message, {cssClass: 'alert-danger', timeout: 3000});
       this.router.navigate(['/']);
     });
   }
