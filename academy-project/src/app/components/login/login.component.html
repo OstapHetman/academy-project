@@ -11,20 +11,21 @@
                     <img src="../../assets/img/stethoscope-grey.svg" alt="stethoscope" class="modal-title mx-auto" id="exampleModalLongTitle">
                     <h4>Sign In</h4>
 
-                    <form>
+                    <form (submit)="onSubmit()">
                         <div class="form-group">
                             <label for="email">Email address</label>
-                            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+                            <input type="email" class="form-control" id="email" name="emaol" placeholder="Enter email" [(ngModel)]="email" required>
                             <label for="password">Password</label>
-                            <input type="passwrod" class="form-control" id="password" aria-describedby="password" placeholder="Enter password">
+                            <input type="password" class="form-control" id="password" placeholder="Enter password" [(ngModel)]="password" name="password" required>
                             <a href="#"><small id="emailHelp" class="form-text text-muted">Forgot your password ?</small></a>
+                        </div>
+                        <div class="modal-footer d-flex justify-content-center">
+                            <input type="submit" class="btn" value="Sign In">
                         </div>
                     </form>
                 </div>
             </div>
-            <div class="modal-footer d-flex justify-content-center">
-                <button type="button" class="btn" data-dismiss="modal">Sign In</button>
-            </div>
+
         </div>
     </div>
 </div>

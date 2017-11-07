@@ -21,11 +21,13 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { PatientsComponent } from './components/patients/patients.component';
 import { DoctorProfileComponent } from './components/doctor-profile/doctor-profile.component';
-import { AddPatientComponent } from './components/add-patient/add-patient.component'
+import { AddPatientComponent } from './components/add-patient/add-patient.component';
+import { PatientDetailsComponent } from './components/patient-details/patient-details.component';
 
 // Service Imports
 import { PatientService } from './services/patient.service';
-import { PatientDetailsComponent } from './components/patient-details/patient-details.component';
+import { AuthService } from './services/auth.service';
+
 
 
 const routes: Routes = [
@@ -72,7 +74,7 @@ const routes: Routes = [
     FormsModule,
     FlashMessagesModule
   ],
-  providers: [AngularFireAuth,AngularFireDatabase,PatientService],
+  providers: [AngularFireAuth,AngularFireDatabase,PatientService,AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
