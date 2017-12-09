@@ -5,7 +5,6 @@ import { PatientService } from '../../services/patient.service';
 import { Patient } from '../../models/Patient';
 import { FilterPipe } from './../../pipes/filter.pipe';
 
-
 @Component({
   selector: 'app-patients',
   templateUrl: './patients.component.html',
@@ -14,6 +13,7 @@ import { FilterPipe } from './../../pipes/filter.pipe';
 export class PatientsComponent implements OnInit {
   patients:any[];
   totalPatients: number;
+
   constructor(
     public patientService: PatientService,
     private _titleService: Title

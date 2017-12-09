@@ -6,6 +6,7 @@ import { Routes, RouterModule } from "@angular/router";
 import { FormsModule } from '@angular/forms';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { Title } from '@angular/platform-browser';
+import { NgxPaginationModule } from 'ngx-pagination'
 
 // AngularFire Imports
 import { Observable } from 'rxjs/Observable';
@@ -32,9 +33,6 @@ import { AuthService } from './services/auth.service';
 import { AuthGuard } from './guards/auth.guard';
 import { FilterPipe } from './pipes/filter.pipe';
 
-
-
-
 const routes: Routes = [
   { path: '', component: SliderComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
@@ -55,7 +53,6 @@ const routes: Routes = [
   storageBucket: "",
   messagingSenderId: "984140954066"
 };
-
 
 @NgModule({
   declarations: [
@@ -79,7 +76,8 @@ const routes: Routes = [
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     FormsModule,
-    FlashMessagesModule.forRoot()
+    FlashMessagesModule.forRoot(),
+    NgxPaginationModule
   ],
   providers: [AngularFireAuth,AngularFireDatabase,PatientService,AuthService,Title, AuthGuard],
   bootstrap: [AppComponent]
