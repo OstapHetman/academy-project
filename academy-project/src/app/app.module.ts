@@ -32,6 +32,9 @@ import { PatientService } from './services/patient.service';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './guards/auth.guard';
 import { FilterPipe } from './pipes/filter.pipe';
+import { DoctorsComponent } from './components/doctors/doctors.component';
+import { AddDoctorComponent } from './components/add-doctor/add-doctor.component';
+import { DoctorDetailsComponent } from './components/doctor-details/doctor-details.component';
 
 const routes: Routes = [
   { path: '', component: SliderComponent, canActivate: [AuthGuard] },
@@ -67,7 +70,10 @@ const routes: Routes = [
     DoctorProfileComponent,
     AddPatientComponent,
     PatientDetailsComponent,
-    FilterPipe
+    FilterPipe,
+    DoctorsComponent,
+    AddDoctorComponent,
+    DoctorDetailsComponent
   ],
   imports: [
     BrowserModule,
