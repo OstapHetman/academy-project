@@ -3,6 +3,8 @@ import { Router} from '@angular/router';
 import { Title } from "@angular/platform-browser";
 import { PatientService } from '../../services/patient.service';
 import { Patient } from '../../models/Patient';
+import { FilterPipe } from './../../pipes/filter.pipe';
+
 
 @Component({
   selector: 'app-patients',

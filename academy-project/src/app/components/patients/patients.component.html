@@ -5,7 +5,7 @@
     <div class="col-md-6 pull-right">
         <a href="#" [routerLink]="['/dashboard', {outlets: {content: 'add-patient'}}]"><i class="fa fa-plus"></i> Add new Patient</a>
         <form class="bd-search hidden-sm-down pull-right">
-            <input type="text" class="form-control" id="search-input" placeholder="Search..." autocomplete="off">
+            <input type="text" class="form-control" id="search-input" placeholder="Search..." [(ngModel)]="term" name="search">
             <div class="dropdown-menu bd-search-results" id="search-results"></div>
         </form>
     </div>
@@ -23,9 +23,9 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let patient of patients">
+        <tr *ngFor="let patient of patients | filter: term">
             <td>{{patient.$key}}</td>
-            <td class="text-left"><img class="rounded-circle patient-photo" src="../../assets/img/patient1.jpg" alt=""> {{patient.firstName}} {{patient.lastName}} </td>
+            <td class="text-left">{{patient.firstName}} {{patient.lastName}} </td>
             <td>{{patient.ssn}} </td>
             <td>{{patient.mediacalState}} </td>
             <td>{{patient.carePlan}} </td>
@@ -54,3 +54,5 @@
         </li>
     </ul>
 </nav>
+
+<!-- <img class="rounded-circle patient-photo" src="../../assets/img/patient1.jpg" alt="">  -->

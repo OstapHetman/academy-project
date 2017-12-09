@@ -30,6 +30,7 @@ import { PatientDetailsComponent } from './components/patient-details/patient-de
 import { PatientService } from './services/patient.service';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './guards/auth.guard';
+import { FilterPipe } from './pipes/filter.pipe';
 
 
 
@@ -68,7 +69,8 @@ const routes: Routes = [
     PatientsComponent,
     DoctorProfileComponent,
     AddPatientComponent,
-    PatientDetailsComponent
+    PatientDetailsComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
