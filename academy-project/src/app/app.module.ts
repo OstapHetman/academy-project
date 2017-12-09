@@ -26,15 +26,17 @@ import { PatientsComponent } from './components/patients/patients.component';
 import { DoctorProfileComponent } from './components/doctor-profile/doctor-profile.component';
 import { AddPatientComponent } from './components/add-patient/add-patient.component';
 import { PatientDetailsComponent } from './components/patient-details/patient-details.component';
-
-// Service Imports
-import { PatientService } from './services/patient.service';
-import { AuthService } from './services/auth.service';
-import { AuthGuard } from './guards/auth.guard';
-import { FilterPipe } from './pipes/filter.pipe';
 import { DoctorsComponent } from './components/doctors/doctors.component';
 import { AddDoctorComponent } from './components/add-doctor/add-doctor.component';
 import { DoctorDetailsComponent } from './components/doctor-details/doctor-details.component';
+
+// Service Imports
+import { PatientService } from './services/patient.service';
+import { DoctorService } from './services/doctor.service';
+import { AuthService } from './services/auth.service';
+import { AuthGuard } from './guards/auth.guard';
+import { FilterPipe } from './pipes/filter.pipe';
+
 
 const routes: Routes = [
   { path: '', component: SliderComponent, canActivate: [AuthGuard] },
@@ -44,6 +46,7 @@ const routes: Routes = [
     { path: 'my-profile', component: DoctorProfileComponent, outlet: 'content', canActivate: [AuthGuard]},
     { path: 'patients', component: PatientsComponent, outlet: 'content', canActivate: [AuthGuard] },
     { path: 'add-patient', component: AddPatientComponent, outlet: 'content', canActivate: [AuthGuard] },
+    { path: 'add-doctor', component: AddDoctorComponent, outlet: 'content', canActivate: [AuthGuard] },
     { path: 'patient/:id', component: PatientDetailsComponent, outlet: 'content', canActivate: [AuthGuard] }
   ]}
  ];
@@ -85,7 +88,7 @@ const routes: Routes = [
     FlashMessagesModule.forRoot(),
     NgxPaginationModule
   ],
-  providers: [AngularFireAuth,AngularFireDatabase,PatientService,AuthService,Title, AuthGuard],
+  providers: [AngularFireAuth,AngularFireDatabase,PatientService,DoctorService,AuthService,Title, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
