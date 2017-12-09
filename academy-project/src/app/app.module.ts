@@ -29,19 +29,20 @@ import { PatientDetailsComponent } from './components/patient-details/patient-de
 // Service Imports
 import { PatientService } from './services/patient.service';
 import { AuthService } from './services/auth.service';
+import { AuthGuard } from './guards/auth.guard';
 
 
 
 
 const routes: Routes = [
-  { path: '', component: SliderComponent },
+  { path: '', component: SliderComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
-  { path: 'dashboard', component: DashboardComponent,
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard],
   children: [
-    { path: 'my-profile', component: DoctorProfileComponent, outlet: 'content'},
-    { path: 'patients', component: PatientsComponent, outlet: 'content' },
-    { path: 'add-patient', component: AddPatientComponent, outlet: 'content' },
-    { path: 'patient/:id', component: PatientDetailsComponent, outlet: 'content' }
+    { path: 'my-profile', component: DoctorProfileComponent, outlet: 'content', canActivate: [AuthGuard]},
+    { path: 'patients', component: PatientsComponent, outlet: 'content', canActivate: [AuthGuard] },
+    { path: 'add-patient', component: AddPatientComponent, outlet: 'content', canActivate: [AuthGuard] },
+    { path: 'patient/:id', component: PatientDetailsComponent, outlet: 'content', canActivate: [AuthGuard] }
   ]}
  ];
 
@@ -78,7 +79,7 @@ const routes: Routes = [
     FormsModule,
     FlashMessagesModule.forRoot()
   ],
-  providers: [AngularFireAuth,AngularFireDatabase,PatientService,AuthService,Title],
+  providers: [AngularFireAuth,AngularFireDatabase,PatientService,AuthService,Title, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
