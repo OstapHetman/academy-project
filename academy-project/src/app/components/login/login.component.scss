@@ -1,44 +1,42 @@
 $borderClr:#00b7f3;
 $btnBg: #00b7f3;
 $textClr: #373737;
-.modal {
-    margin-top: 15vh;
-    .modal-content {
-        border-top: 5px $borderClr solid;
+.modal-body {
+    box-shadow: 0 0 5px $textClr;
+    margin-top: 20%;
+    img {
+        width: 40px;
+        height: 40px;
     }
-    .modal-body {
-        img {
-            width: 40px;
-            height: 40px;
-        }
-        h4 {
-            text-align: center;
-            color: $textClr;
-        }
-        form {
-            input {
-                border: 2px $borderClr solid;
-                &:focus {
-                    box-shadow: 0 0 14px 3px rgba(0, 183, 243, 0.3);
-                }
-            }
-        }
+    h4 {
+        text-align: center;
+        color: $textClr;
     }
-    .modal-header {
-        border: unset;
-        padding-bottom: unset;
-    }
-    .modal-footer {
-        border: unset;
-        padding-top: unset;
-        .btn {
-            background-color: unset;
+    form {
+        input {
             border: 2px $borderClr solid;
-            color: $textClr;
-            &:hover {
-                background-color: $borderClr;
-                color: #fff;
+            &:focus {
+                box-shadow: 0 0 14px 3px rgba(0, 183, 243, 0.3);
             }
+        }
+    }
+}
+
+.modal-header {
+    border: unset;
+    padding-bottom: unset;
+}
+
+.modal-footer {
+    border: unset;
+    padding-top: unset;
+    .btn {
+        background-color: unset;
+        border: 2px $borderClr solid;
+        color: $textClr;
+        &:hover {
+            background-color: $borderClr;
+            color: #fff;
         }
     }
 }

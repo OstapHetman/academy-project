@@ -1,3 +1,4 @@
+
 // Modules
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -31,8 +32,10 @@ import { AuthService } from './services/auth.service';
 
 
 
+
 const routes: Routes = [
   { path: '', component: SliderComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent,
   children: [
     { path: 'my-profile', component: DoctorProfileComponent, outlet: 'content'},
@@ -73,7 +76,7 @@ const routes: Routes = [
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     FormsModule,
-    FlashMessagesModule
+    FlashMessagesModule.forRoot()
   ],
   providers: [AngularFireAuth,AngularFireDatabase,PatientService,AuthService,Title],
   bootstrap: [AppComponent]
