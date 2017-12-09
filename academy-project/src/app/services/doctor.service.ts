@@ -18,9 +18,16 @@ export class DoctorService {
   // newPatient(patient: Patient) {
   //   this.patients.push(patient);
   // }
-  // getPatient(id:string) {
-  //   this.patient = this.db.object('/patients/'+id) as FirebaseObjectObservable<Patient>;
-  //   return this.patient;
-  //   }
+  getDoctor(id:string) {
+    this.doctor = this.db.object('doctors/'+id) as FirebaseObjectObservable<Doctor>;
+    return this.doctor;
+    }
+
+    deleteDoctor (id: string) {
+      return this.doctors.remove(id);
+      }
+  updateDoctor(id: string, doctor: Doctor) {
+    return this.doctors.update(id, doctor);
+  }
 
 }

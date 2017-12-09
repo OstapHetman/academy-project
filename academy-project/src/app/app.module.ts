@@ -47,7 +47,8 @@ const routes: Routes = [
     { path: 'patients', component: PatientsComponent, outlet: 'content', canActivate: [AuthGuard] },
     { path: 'add-patient', component: AddPatientComponent, outlet: 'content', canActivate: [AuthGuard] },
     { path: 'add-doctor', component: AddDoctorComponent, outlet: 'content', canActivate: [AuthGuard] },
-    { path: 'patient/:id', component: PatientDetailsComponent, outlet: 'content', canActivate: [AuthGuard] }
+    { path: 'patient/:id', component: PatientDetailsComponent, outlet: 'content', canActivate: [AuthGuard] },
+    { path: 'doctor/:id', component: DoctorDetailsComponent, outlet: 'content', canActivate: [AuthGuard] }
   ]}
  ];
 
