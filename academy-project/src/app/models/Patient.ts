@@ -6,4 +6,6 @@ export interface Patient {
     lastName?: string;
     mediacalState?:string; 
     ssn?:number; 
+    phoneNumber?: string;
+    // patientUrl: string;
 }

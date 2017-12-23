@@ -25,7 +25,7 @@
     <tbody>
         <tr *ngFor="let patient of patients | filter: term | paginate: { itemsPerPage: 2, currentPage: p }">
             <td>{{patient.$key}}</td>
-            <td class="text-left">{{patient.firstName}} {{patient.lastName}} </td>
+            <td class="text-left">{{patient.firstName}} {{patient.lastName}} <img src="{{patient.photoUrl}}" alt=""> </td>
             <td>{{patient.ssn}} </td>
             <td>{{patient.mediacalState}} </td>
             <td>{{patient.carePlan}} </td>

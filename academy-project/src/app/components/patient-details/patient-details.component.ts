@@ -16,7 +16,8 @@ export class PatientDetailsComponent implements OnInit {
     lastName:'',
     ssn: 0,
     mediacalState:'',
-    carePlan:''
+    carePlan:'',
+    phoneNumber:''
   }
 
 

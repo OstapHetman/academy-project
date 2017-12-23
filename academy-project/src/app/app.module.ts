@@ -36,6 +36,7 @@ import { DoctorService } from './services/doctor.service';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './guards/auth.guard';
 import { FilterPipe } from './pipes/filter.pipe';
+import { SendMessageComponent } from './components/send-message/send-message.component';
 
 
 const routes: Routes = [
@@ -45,9 +46,11 @@ const routes: Routes = [
   children: [
     { path: 'my-profile', component: DoctorProfileComponent, outlet: 'content', canActivate: [AuthGuard]},
     { path: 'patients', component: PatientsComponent, outlet: 'content', canActivate: [AuthGuard] },
+    { path: 'doctors', component: DoctorsComponent, outlet: 'content', canActivate: [AuthGuard] },
     { path: 'add-patient', component: AddPatientComponent, outlet: 'content', canActivate: [AuthGuard] },
     { path: 'add-doctor', component: AddDoctorComponent, outlet: 'content', canActivate: [AuthGuard] },
-    { path: 'patient/:id', component: PatientDetailsComponent, outlet: 'content', canActivate: [AuthGuard] },
+    { path: 'patient/:id', component: PatientDetailsComponent, outlet: 'content', canActivate: [AuthGuard], },
+    { path: 'message', component: SendMessageComponent, outlet: 'content', canActivate: [AuthGuard], },
     { path: 'doctor/:id', component: DoctorDetailsComponent, outlet: 'content', canActivate: [AuthGuard] }
   ]}
  ];
@@ -77,7 +80,8 @@ const routes: Routes = [
     FilterPipe,
     DoctorsComponent,
     AddDoctorComponent,
-    DoctorDetailsComponent
+    DoctorDetailsComponent,
+    SendMessageComponent
   ],
   imports: [
     BrowserModule,

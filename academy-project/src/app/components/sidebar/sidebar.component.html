@@ -1,16 +1,15 @@
 <div class="sidebar">
     <div class="info-account d-flex pt-4">
         <img src="../../assets/img/doctor_steven.jpeg" alt="account_image">
-        <p>Steven Dirksen</p>
+        <p *ngIf="isLoggedIn">{{loggedInUser}}</p>
         <p>Doctor</p>
     </div>
     <div class="menu">
         <ul>
             <li routerLinkActive="active"><a href="#" [routerLink]="['/dashboard', {outlets: {content: ['my-profile']}}]"><i class="fa fa-user-md" aria-hidden="true"></i> My Profile</a></li>
             <li routerLinkActive="active"><a href="#" [routerLink]="['/dashboard', {outlets: {content: ['patients']}}]"><i class="fa fa-database" aria-hidden="true"></i> Patients</a></li>
-            <li><a><i class="fa fa-edit" aria-hidden="true"></i> New Analysis</a></li>
-            <li><a><i class="fa fa-list-alt" aria-hidden="true"></i> To Do Manager</a></li>
-            <li><a><i class="fa fa-comment" aria-hidden="true"></i> Chat</a></li>
+            <li routerLinkActive="active"><a href="#" [routerLink]="['/dashboard', {outlets: {content: ['doctors']}}]"><i class="fa fa-database" aria-hidden="true"></i> Doctors</a></li>
+            <li routerLinkActive="active"><a href="#" [routerLink]="['/dashboard', {outlets: {content: ['message']}}]"><i class="fa fa-comment" aria-hidden="true"></i> Message</a></li>
         </ul>
     </div>
 </div>

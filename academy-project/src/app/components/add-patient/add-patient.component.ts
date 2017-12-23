@@ -18,7 +18,8 @@ export class AddPatientComponent implements OnInit {
     lastName:'',
     ssn: 1234567890,
     mediacalState:'',
-    carePlan:''
+    carePlan:'',
+    phoneNumber: ''
   }
 
   constructor(
