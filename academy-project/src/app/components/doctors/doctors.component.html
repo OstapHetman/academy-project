@@ -24,7 +24,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let doctor of doctors | filter: term | paginate: { itemsPerPage: 2, currentPage: p }">
+        <tr *ngFor="let doctor of doctors | filter: term | paginate: { itemsPerPage: 5, currentPage: p }">
             <td>{{doctor.$key}}</td>
             <td class="text-left">{{doctor.firstName}} {{doctor.lastName}} </td>
             <td>{{doctor.username}} </td>

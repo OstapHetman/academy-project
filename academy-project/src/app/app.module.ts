@@ -29,14 +29,16 @@ import { PatientDetailsComponent } from './components/patient-details/patient-de
 import { DoctorsComponent } from './components/doctors/doctors.component';
 import { AddDoctorComponent } from './components/add-doctor/add-doctor.component';
 import { DoctorDetailsComponent } from './components/doctor-details/doctor-details.component';
+import { SendMessageComponent } from './components/send-message/send-message.component';
 
 // Service Imports
 import { PatientService } from './services/patient.service';
 import { DoctorService } from './services/doctor.service';
 import { AuthService } from './services/auth.service';
+import { UploadService } from './services/upload.service';
 import { AuthGuard } from './guards/auth.guard';
 import { FilterPipe } from './pipes/filter.pipe';
-import { SendMessageComponent } from './components/send-message/send-message.component';
+
 
 
 const routes: Routes = [
@@ -60,7 +62,7 @@ const routes: Routes = [
   authDomain: "healthcare-dfe17.firebaseapp.com",
   databaseURL: "https://healthcare-dfe17.firebaseio.com",
   projectId: "healthcare-dfe17",
-  storageBucket: "",
+  storageBucket: "healthcare-dfe17.appspot.com",
   messagingSenderId: "984140954066"
 };
 
@@ -93,7 +95,7 @@ const routes: Routes = [
     FlashMessagesModule.forRoot(),
     NgxPaginationModule
   ],
-  providers: [AngularFireAuth,AngularFireDatabase,PatientService,DoctorService,AuthService,Title, AuthGuard],
+  providers: [AngularFireAuth,AngularFireDatabase,PatientService,DoctorService,AuthService,Title, AuthGuard, UploadService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

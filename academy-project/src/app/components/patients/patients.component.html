@@ -23,7 +23,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let patient of patients | filter: term | paginate: { itemsPerPage: 2, currentPage: p }">
+        <tr *ngFor="let patient of patients | filter: term | paginate: { itemsPerPage: 5, currentPage: p }">
             <td>{{patient.$key}}</td>
             <td class="text-left">{{patient.firstName}} {{patient.lastName}} <img src="{{patient.photoUrl}}" alt=""> </td>
             <td>{{patient.ssn}} </td>

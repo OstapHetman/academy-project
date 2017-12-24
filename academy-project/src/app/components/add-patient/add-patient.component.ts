@@ -1,3 +1,5 @@
+import { UploadService } from './../../services/upload.service';
+import { Upload } from './../../services/upload';
 import { Component, OnInit } from '@angular/core';
 import { PatientService } from './../../services/patient.service';
 import { Title } from "@angular/platform-browser";
@@ -5,14 +7,12 @@ import { Router } from '@angular/router';
 import { Patient } from '../../models/Patient';
 import { FlashMessagesService } from 'angular2-flash-messages';
 
-
 @Component({
   selector: 'app-add-patient',
   templateUrl: './add-patient.component.html',
   styleUrls: ['./add-patient.component.scss']
 })
 export class AddPatientComponent implements OnInit {
-
   patient: Patient = {
     firstName:'',
     lastName:'',
@@ -26,7 +26,8 @@ export class AddPatientComponent implements OnInit {
     public flashMessagesService: FlashMessagesService,
     public router: Router,
     public patientService: PatientService,
-    private _titleService: Title
+    private _titleService: Title,
+    private upSvc: UploadService
   ) { }
 
   ngOnInit() {
@@ -44,4 +45,5 @@ export class AddPatientComponent implements OnInit {
     }
     }
 
+ 
 }

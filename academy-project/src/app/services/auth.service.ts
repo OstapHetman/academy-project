@@ -21,6 +21,7 @@ export class AuthService {
     public afAuth: AngularFireAuth,
     public db:AngularFireDatabase
   ) { }
+    
   login(email: string, password: string) {
     return new Promise ((resolve, reject) => {
       this.afAuth.auth.signInWithEmailAndPassword(email, password)
