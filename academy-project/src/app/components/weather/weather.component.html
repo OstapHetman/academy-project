@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="info">
+
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-block">
+                    <div class="head-text">
+                        <h4><i class="fa fa-globe" aria-hidden="true"></i> Weather for {{weather.city.name}}, UA</h4>
+                    </div>
+                    <hr>
+                    <div class="under-head-text">
+                        <div class="right-side">
+                            <h4><i class="fa fa-thermometer-half" aria-hidden="true"></i> {{weather.list[0].main.temp - 273.15}}°C</h4>
+                            <h4><i class="fa fa-cloud" aria-hidden="true"></i> {{weather.list[0].weather[0].description}}</h4>
+                            <h6>Wind: {{weather.list[0].wind.speed}} m/s</h6>
+                        </div>
+                        <div class="left-side">
+                            <h4>Max Temp:{{weather.list[0].main.temp_max - 273.15}} °C</h4>
+                            <h4>Min Temp: {{weather.list[0].main.temp_min - 273.15}} °C</h4>
+                            <h4>Humidity:{{weather.list[0].main.humidity}} %</h4>
+                            <h4>Atmospheric pressure:{{weather.list[0].main.pressure}} mmHg</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

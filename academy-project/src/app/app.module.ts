@@ -1,4 +1,3 @@
-
 // Modules
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -6,7 +5,9 @@ import { Routes, RouterModule } from "@angular/router";
 import { FormsModule } from '@angular/forms';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { Title } from '@angular/platform-browser';
-import { NgxPaginationModule } from 'ngx-pagination'
+import { NgxPaginationModule } from 'ngx-pagination';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 
 // AngularFire Imports
 import { Observable } from 'rxjs/Observable';
@@ -30,14 +31,17 @@ import { DoctorsComponent } from './components/doctors/doctors.component';
 import { AddDoctorComponent } from './components/add-doctor/add-doctor.component';
 import { DoctorDetailsComponent } from './components/doctor-details/doctor-details.component';
 import { SendMessageComponent } from './components/send-message/send-message.component';
+import { WeatherComponent } from './components/weather/weather.component';
 
 // Service Imports
 import { PatientService } from './services/patient.service';
 import { DoctorService } from './services/doctor.service';
 import { AuthService } from './services/auth.service';
 import { UploadService } from './services/upload.service';
+import { WeatherService } from './services/weather.service';
 import { AuthGuard } from './guards/auth.guard';
 import { FilterPipe } from './pipes/filter.pipe';
+
 
 
 
@@ -52,6 +56,7 @@ const routes: Routes = [
     { path: 'add-patient', component: AddPatientComponent, outlet: 'content', canActivate: [AuthGuard] },
     { path: 'add-doctor', component: AddDoctorComponent, outlet: 'content', canActivate: [AuthGuard] },
     { path: 'patient/:id', component: PatientDetailsComponent, outlet: 'content', canActivate: [AuthGuard], },
+    { path: 'weather', component: WeatherComponent, outlet: 'content', canActivate: [AuthGuard], },
     { path: 'message', component: SendMessageComponent, outlet: 'content', canActivate: [AuthGuard], },
     { path: 'doctor/:id', component: DoctorDetailsComponent, outlet: 'content', canActivate: [AuthGuard] }
   ]}
@@ -83,7 +88,8 @@ const routes: Routes = [
     DoctorsComponent,
     AddDoctorComponent,
     DoctorDetailsComponent,
-    SendMessageComponent
+    SendMessageComponent,
+    WeatherComponent
   ],
   imports: [
     BrowserModule,
@@ -93,9 +99,11 @@ const routes: Routes = [
     AngularFireAuthModule,
     FormsModule,
     FlashMessagesModule.forRoot(),
-    NgxPaginationModule
+    NgxPaginationModule,
+    HttpClientModule,
+    HttpModule
   ],
-  providers: [AngularFireAuth,AngularFireDatabase,PatientService,DoctorService,AuthService,Title, AuthGuard, UploadService],
+  providers: [AngularFireAuth,AngularFireDatabase,PatientService,DoctorService,AuthService,Title, AuthGuard, UploadService, WeatherService, HttpClientModule, HttpModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
