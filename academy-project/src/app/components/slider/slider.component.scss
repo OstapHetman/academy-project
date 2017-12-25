@@ -1,3 +1,6 @@
+$iconColor: #00b7f3;
+$h4Color: #4a5666;
+$pColor: #6e7682;
 .jumbotron {
     position: relative;
     height: 90vh;
@@ -14,5 +17,120 @@
         right: 0;
         position: absolute;
         z-index: -1;
+    }
+}
+
+#services {
+    min-height: 600px;
+    .doctor {
+        img {
+            width: 300px;
+            height: auto;
+            padding-top: 100px;
+        }
+    }
+    .group {
+        display: flex;
+        i {
+            color: $iconColor;
+            font-size: 2.7rem;
+        }
+        .text {
+            padding-left: 10px;
+            h4 {
+                color: $h4Color;
+            }
+            p {
+                color: $pColor;
+                font-size: 1rem;
+            }
+        }
+    }
+}
+
+#support {
+    background-image: url("/assets/img/cabinet.jpeg");
+    background-size: cover;
+    min-height: 350px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    h4,
+    h1,
+    p {
+        color: white
+    }
+    h4 {
+        font-weight: 700;
+    }
+    h1 {
+        font-weight: 900;
+    }
+    p {
+        font-weight: 700;
+    }
+    ul {
+        list-style: none;
+        li {
+            color: white;
+            font-weight: 600;
+        }
+    }
+}
+
+#achievemnts {
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    .group {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        i {
+            color: #20262e;
+            font-size: 3rem;
+        }
+        .text {
+            padding-left: 10px;
+            h4 {
+                color: #20262e;
+                font-weight: 700;
+                font-size: 2rem;
+            }
+            p {
+                color: #20262e;
+                font-size: 1rem;
+                font-weight: 700;
+            }
+        }
+    }
+}
+
+footer {
+    background-color: #f0f2f2;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    .row {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 20px;
+        padding-bottom: 10px;
+    }
+}
+
+hr.color {
+    border: 0;
+    height: 4px;
+    background: linear-gradient(to right, lightblue, blue, orangered);
+    margin: 0px;
+}
+
+hr {
+    margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+    #services {
+        padding-top: 50px;
     }
 }
