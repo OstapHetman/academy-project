@@ -1,10 +1,10 @@
-import { UploadService } from './../../services/upload.service';
+import { Settings } from './../../models/Settings';
+import { FlashMessagesService } from 'angular2-flash-messages';
 import { Component, OnInit } from '@angular/core';
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from "angularfire2/database-deprecated";
 import { Observable } from 'rxjs/Observable';
-import * as firebase from 'firebase';
-import * as $ from 'jquery';
+import { SettingsService } from './../../services/settings.service';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-send-message',
@@ -12,8 +12,20 @@ import * as $ from 'jquery';
   styleUrls: ['./send-message.component.scss']
 })
 export class SendMessageComponent implements OnInit {
+  settings: Settings;
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    public settingsService: SettingsService,
+    public flashMessagesService: FlashMessagesService
+  ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.settings  = this.settingsService.getSettings();
+  }
+  onSubmit() {
+    this.settingsService.changeSettings(this.settings);
+    this.flashMessagesService.show('Settings saved', {cssClass: 'alert-success', timeout: 4000});
+    this.router.navigate(['/dashboard', {outlets: {content: ['settings']}}]);
+  }
 }

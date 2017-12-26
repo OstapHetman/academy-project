@@ -80,7 +80,7 @@
 
             <div class="form-group">
                 <label for="carePlan">Care Plan</label>
-                <textarea class="form-control" cols="20" name="carePlan" [(ngModel)]="patient.carePlan"></textarea>
+                <textarea class="form-control" cols="20" name="carePlan" [(ngModel)]="patient.carePlan" [disabled]="disableCareplanOnAdd"></textarea>
             </div>
 
             <input type="submit" class="btn btn-success btn-block" value="Submit">

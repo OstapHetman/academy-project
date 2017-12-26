@@ -1,4 +1,3 @@
-
 // Modules
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -43,6 +42,8 @@ import { UploadService } from './services/upload.service';
 import { WeatherService } from './services/weather.service';
 import { AuthGuard } from './guards/auth.guard';
 import { FilterPipe } from './pipes/filter.pipe';
+import { SettingsService } from './services/settings.service';
+
 
 
 const routes: Routes = [
@@ -104,7 +105,7 @@ const routes: Routes = [
     HttpModule,
     TextMaskModule
   ],
-  providers: [AngularFireAuth,AngularFireDatabase,PatientService,DoctorService,AuthService,Title, AuthGuard, UploadService, WeatherService, HttpClientModule, HttpModule],
+  providers: [AngularFireAuth,AngularFireDatabase,PatientService,DoctorService,AuthService,Title, AuthGuard, UploadService, WeatherService, HttpClientModule, HttpModule, SettingsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

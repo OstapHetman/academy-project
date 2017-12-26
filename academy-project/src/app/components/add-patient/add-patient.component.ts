@@ -1,3 +1,4 @@
+import { SettingsService } from './../../services/settings.service';
 import { UploadService } from './../../services/upload.service';
 import { Upload } from './../../services/upload';
 import { Component, OnInit } from '@angular/core';
@@ -28,17 +29,20 @@ export class AddPatientComponent implements OnInit {
     email:'',
     birthday:''
   }
+  disableCareplanOnAdd: boolean = false;
 
   constructor(
     public flashMessagesService: FlashMessagesService,
     public router: Router,
     public patientService: PatientService,
     private _titleService: Title,
-    private upSvc: UploadService
+    private upSvc: UploadService,
+    public setting: SettingsService
   ) { }
 
   ngOnInit() {
     this._titleService.setTitle('HealthCare | Add patient');
+    this.disableCareplanOnAdd = this.setting.getSettings().disableCareplanOnAdd;
   }
   onSubmit({value, valid}: {value:Patient, valid:boolean}) {
     if(!valid) {
