@@ -1,13 +1,3 @@
-<div class="row">
-
-    <div class="col-md-6">
-        <a routerLink="/" class="btn btn-link"> <i class="fa fa-arrow-circle-o-left"></i>Back To Dashboard</a>
-    </div>
-
-    <div class="col-md-6">
-
-    </div>
-</div>
 <div class="card">
     <h3 class="card-header">
         Edit Settings
@@ -15,22 +5,22 @@
     <div class="card-block">
         <form (submit)="onSubmit()">
             <div class="form-group">
-                <label>Disable Care Plan on Add</label>
+                <label>Disable/Allow Care Plan on Add</label>
                 <input type="checkbox" [checked]="settings.disableCareplanOnAdd" (change)="settings.disableCareplanOnAdd = !settings.disableCareplanOnAdd" name="disableCareplanOnAdd">
             </div>
 
             <div class="form-group">
-                <label>Disable Care Plan on Edit</label>
+                <label>Disable/Allow Care Plan on Edit</label>
                 <input type="checkbox" [checked]="settings.disableCareplanOnEdit" (change)="settings.disableCareplanOnEdit = !settings.disableCareplanOnEdit" name="disableCareplanOnEdit">
             </div>
 
             <div class="form-group">
-                <label>Disable Medical State on Edit</label>
+                <label>Disable/Allow Medical State on Edit</label>
                 <input type="checkbox" [checked]="settings. disableMedicalStateOnEdit" (change)="settings. disableMedicalStateOnEdit = !settings. disableMedicalStateOnEdit" name=" disableMedicalStateOnEdit">
             </div>
 
             <div class="form-group">
-                <label>Disable Medical State on Add</label>
+                <label>Disable/Allow Medical State on Add</label>
                 <input type="checkbox" [checked]="settings. disableMedicalStateOnAdd" (change)="settings. disableMedicalStateOnAdd = !settings. disableMedicalStateOnAdd" name=" disableMedicalStateOnAdd">
             </div>
 

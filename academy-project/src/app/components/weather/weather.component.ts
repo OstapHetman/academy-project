@@ -2,6 +2,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { WeatherService } from './../../services/weather.service';
 import { Component, OnInit } from '@angular/core';
+import { Title } from "@angular/platform-browser";
 
 @Component({
   selector: 'app-weather',
@@ -17,10 +18,10 @@ export class WeatherComponent implements OnInit {
   weather:any;
   value:any;
 
-  constructor(private _weatherService: WeatherService) {}
+  constructor(private _weatherService: WeatherService, private _titleService: Title,) {}
 
   ngOnInit() {
-
+      this._titleService.setTitle('HealthCare | Weather');
       this.value = localStorage.getItem('location');
 
       if (this.value!=null){

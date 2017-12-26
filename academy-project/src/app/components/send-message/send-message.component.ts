@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { SettingsService } from './../../services/settings.service';
 import { Router} from '@angular/router';
+import { Title } from "@angular/platform-browser";
 
 @Component({
   selector: 'app-send-message',
@@ -17,11 +18,13 @@ export class SendMessageComponent implements OnInit {
   constructor(
     private router: Router,
     public settingsService: SettingsService,
+    private _titleService: Title,
     public flashMessagesService: FlashMessagesService
   ) { }
 
   ngOnInit() {
     this.settings  = this.settingsService.getSettings();
+    this._titleService.setTitle('HealthCare | Settings');
   }
   onSubmit() {
     this.settingsService.changeSettings(this.settings);
