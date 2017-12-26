@@ -1,9 +1,9 @@
 <div class="row">
     <div class="col-md-6">
-        <h5 class="text-muted">Total Doctors: {{totalDoctors}}</h5>
+        <h5 class="text-muted total-patients">Total Doctors: {{totalDoctors}}</h5>
     </div>
     <div class="col-md-6 pull-right">
-        <a href="#" [routerLink]="['/dashboard', {outlets: {content: 'add-doctor'}}]"><i class="fa fa-plus"></i> Add new Doctor</a>
+        <a href="#" class="add-new-doctor" [routerLink]="['/dashboard', {outlets: {content: 'add-doctor'}}]"><i class="fa fa-plus"></i> Add new Doctor</a>
         <form class="bd-search hidden-sm-down pull-right">
             <input type="text" class="form-control" id="search-input" placeholder="Search..." [(ngModel)]="term" name="search">
             <div class="dropdown-menu bd-search-results" id="search-results"></div>
@@ -16,23 +16,24 @@
         <tr>
             <th>ID</th>
             <th>Doctors</th>
-            <th>Username</th>
             <th>Password</th>
-            <th>Confirm Password</th>
             <th>Email</th>
+            <th>Phone</th>
+            <th>Birthday</th>
             <th>Action</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let doctor of doctors | filter: term | paginate: { itemsPerPage: 5, currentPage: p }">
-            <td>{{doctor.$key}}</td>
+            <!-- <td>{{doctor.$key}}</td> -->
+            <td></td>
             <td class="text-left">{{doctor.firstName}} {{doctor.lastName}} </td>
-            <td>{{doctor.username}} </td>
-            <td>{{doctor.password}} </td>
-            <td>{{doctor.confirmPassword}} </td>
-            <td>{{doctor.email}} </td>
+            <td>{{doctor.password}}</td>
+            <td>{{doctor.email}}</td>
+            <td>{{doctor.phoneNumber}}</td>
+            <td>{{doctor.birthday}}</td>
             <td>
-                <a href="#" class="btn" [routerLink]="['/dashboard', {outlets: {content: 'doctor/'+doctor.$key}}]"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                <a href="#" class="btn view-more" [routerLink]="['/dashboard', {outlets: {content: 'doctor/'+doctor.$key}}]"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
             </td>
         </tr>
     </tbody>

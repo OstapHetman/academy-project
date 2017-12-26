@@ -1,4 +1,15 @@
 $borderClr:#00b7f3;
+$patientClr: #f09d41;
+h5.total-patients {
+    margin-top: 9px;
+}
+
+a.add-new-doctor {
+    color: $patientClr;
+    display: inline-block;
+    margin-top: 9px;
+}
+
 form {
     margin-bottom: 1em;
     input {
@@ -24,4 +35,27 @@ table {
         font-size: 1.2rem;
         color: black !important;
     }
+    .text-center {
+        font-weight: 500;
+    }
+    .view-more i {
+        color: $patientClr !important;
+        &:hover {
+            font-size: 1.5rem;
+        }
+    }
+}
+
+table {
+    counter-reset: rowNumbe-1;
+}
+
+table tr {
+    counter-increment: rowNumber;
+}
+
+table tr td:first-child::before {
+    content: counter(rowNumber);
+    min-width: 1em;
+    margin-right: 0.5em;
 }
