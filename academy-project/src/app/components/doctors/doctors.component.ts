@@ -20,7 +20,7 @@ export class DoctorsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this._titleService.setTitle('HealthCare | Patients');
+    this._titleService.setTitle('HealthCare | Doctors');
     this.doctorService.getDoctors().subscribe(doctors => {
     this.doctors = doctors;
     this.getTotalDoctors();

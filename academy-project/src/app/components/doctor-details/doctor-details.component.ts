@@ -3,6 +3,9 @@ import { DoctorService } from './../../services/doctor.service';
 import { Doctor } from './../../models/Doctor';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { TextMaskModule } from 'angular2-text-mask';
+import emailMask from 'text-mask-addons/dist/emailMask';
+import createAutoCorrectedDatePipe from 'text-mask-addons/dist/createAutoCorrectedDatePipe';
 
 @Component({
   selector: 'app-doctor-details',
@@ -18,7 +21,8 @@ export class DoctorDetailsComponent implements OnInit {
     confirmPassword:'',
     email:'',
     birthday:'',
-    phoneNumber:''
+    phoneNumber:'',
+    about:''
   }
   constructor(
     public doctorService: DoctorService,
@@ -47,11 +51,13 @@ export class DoctorDetailsComponent implements OnInit {
       this.flashMessagesService.show('Please fill in all fields', {cssClass:'alert-danger',timeout:4000});
       this.router.navigate(['/dashboard', {outlets: {content: 'doctor/'+this.doctor.$key}}]);
     } else {
-      // Update client
+      // Update doctor
       this.doctorService.updateDoctor(this.id,value);
       this.flashMessagesService.show('Doctor update', {cssClass:'alert-success',timeout:4000});
       this.router.navigate(['/dashboard', {outlets: {content: ['doctors']}}]);
     }
   }
+  public mask = ['(', /[0-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
+    public birthday = [/\d/, /\d/, '/', /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/];
 
 }

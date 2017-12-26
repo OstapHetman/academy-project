@@ -23,9 +23,10 @@ export class DoctorService {
     return this.doctor;
     }
 
-    deleteDoctor (id: string) {
+  deleteDoctor (id: string) {
       return this.doctors.remove(id);
-      }
+  }
+  
   updateDoctor(id: string, doctor: Doctor) {
     return this.doctors.update(id, doctor);
   }

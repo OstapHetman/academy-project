@@ -7,4 +7,5 @@ export interface Doctor {
     firstName?: string;
     lastName?: string;
     birthday?: string;
+    about?: string;
 }

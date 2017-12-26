@@ -5,6 +5,9 @@ import { Router } from '@angular/router';
 import { Doctor } from '../../models/Doctor';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { AuthService } from '../../services/auth.service'; 
+import { TextMaskModule } from 'angular2-text-mask';
+import emailMask from 'text-mask-addons/dist/emailMask';
+import createAutoCorrectedDatePipe from 'text-mask-addons/dist/createAutoCorrectedDatePipe';
 
 @Component({
   selector: 'app-add-doctor',
@@ -22,7 +25,8 @@ export class AddDoctorComponent implements OnInit {
     confirmPassword:'',
     email:'',
     birthday:'',
-    phoneNumber:''
+    phoneNumber:'',
+    about:''
   }
   constructor(
     public flashMessagesService: FlashMessagesService,
@@ -33,21 +37,23 @@ export class AddDoctorComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // this._titleService.setTitle('HealthCare | Add patient');
+    this._titleService.setTitle('HealthCare | Add Doctor');
   }
   // 
   onSubmit({value, valid}: {value:Doctor, valid:boolean}) {
     // this.authService.register(this.email, this.password)
     if(!valid) {
       this.flashMessagesService.show('Please fill in all fields', {cssClass:'alert-danger',timeout:4000});
-      this.router.navigate(['/dashboard', {outlets: {content: 'add-patient'}}]);
+      this.router.navigate(['/dashboard', {outlets: {content: 'add-doctor'}}]);
     } else {
       // Add new doctor
       this.authService.register(this.email, this.password)
       this.doctorService.newDoctor(value);
       this.flashMessagesService.show('New doctor added', {cssClass:'alert-success',timeout:4000});
-      this.router.navigate(['/dashboard', {outlets: {content: ['patients']}}]);
+      this.router.navigate(['/dashboard', {outlets: {content: ['doctors']}}]);
     }
     }
+    public mask = ['(', /[0-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
+    public birthday = [/\d/, /\d/, '/', /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/];
 
 }
