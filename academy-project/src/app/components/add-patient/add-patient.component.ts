@@ -8,6 +8,7 @@ import { Patient } from '../../models/Patient';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { TextMaskModule } from 'angular2-text-mask';
 import emailMask from 'text-mask-addons/dist/emailMask';
+import createAutoCorrectedDatePipe from 'text-mask-addons/dist/createAutoCorrectedDatePipe';
 
 
 @Component({
@@ -16,13 +17,16 @@ import emailMask from 'text-mask-addons/dist/emailMask';
   styleUrls: ['./add-patient.component.scss']
 })
 export class AddPatientComponent implements OnInit {
-  patient: Patient = {
+  
+  patient: Patient= {
     firstName:'',
     lastName:'',
-    ssn: 1234567890,
+    ssn: '',
     mediacalState:'',
     carePlan:'',
-    phoneNumber: ''
+    phoneNumber:'',
+    email:'',
+    birthday:''
   }
 
   constructor(
@@ -47,6 +51,6 @@ export class AddPatientComponent implements OnInit {
       this.router.navigate(['/dashboard', {outlets: {content: ['patients']}}]);
     }
     }
-    public myModel = ''
     public mask = ['(', /[0-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
+    public birthday = [/\d/, /\d/, '/', /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/];
 }

@@ -15,10 +15,12 @@ export class PatientDetailsComponent implements OnInit {
   patient: Patient= {
     firstName:'',
     lastName:'',
-    ssn: 0,
+    ssn: '',
     mediacalState:'',
     carePlan:'',
-    phoneNumber:''
+    phoneNumber:'',
+    email:'',
+    birthday:''
   }
 
 

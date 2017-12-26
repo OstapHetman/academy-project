@@ -29,7 +29,7 @@
             <td class="text-center">{{patient.firstName}} {{patient.lastName}} <img src="{{patient.photoUrl}}" alt=""> </td>
             <td>{{patient.ssn}} </td>
             <td class="medicalState" #myname>{{patient.mediacalState}}</td>
-            <td>{{patient.carePlan}}</td>
+            <td>{{patient.carePlan | slice:0:15}}...</td>
             <td>
                 <a href="#" class="btn view-more" [routerLink]="['/dashboard', {outlets: {content: 'patient/'+patient.$key}}]"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
             </td>
