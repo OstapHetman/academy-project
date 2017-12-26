@@ -1,3 +1,4 @@
+
 // Modules
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -44,8 +45,6 @@ import { AuthGuard } from './guards/auth.guard';
 import { FilterPipe } from './pipes/filter.pipe';
 
 
-
-
 const routes: Routes = [
   { path: '', component: SliderComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
@@ -58,7 +57,7 @@ const routes: Routes = [
     { path: 'add-doctor', component: AddDoctorComponent, outlet: 'content', canActivate: [AuthGuard] },
     { path: 'patient/:id', component: PatientDetailsComponent, outlet: 'content', canActivate: [AuthGuard], },
     { path: 'weather', component: WeatherComponent, outlet: 'content', canActivate: [AuthGuard], },
-    { path: 'message', component: SendMessageComponent, outlet: 'content', canActivate: [AuthGuard], },
+    { path: 'settings', component: SendMessageComponent, outlet: 'content', canActivate: [AuthGuard], },
     { path: 'doctor/:id', component: DoctorDetailsComponent, outlet: 'content', canActivate: [AuthGuard] }
   ]}
  ];

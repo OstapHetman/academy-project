@@ -14,6 +14,7 @@ import createAutoCorrectedDatePipe from 'text-mask-addons/dist/createAutoCorrect
   templateUrl: './add-doctor.component.html',
   styleUrls: ['./add-doctor.component.scss']
 })
+
 export class AddDoctorComponent implements OnInit {
   email: string;
   password: string;
@@ -33,7 +34,7 @@ export class AddDoctorComponent implements OnInit {
     public router: Router,
     public doctorService: DoctorService,
     private _titleService: Title,
-    private authService: AuthService
+    private authService: AuthService,
   ) { }
 
   ngOnInit() {
