@@ -18,10 +18,11 @@ export class AddDoctorComponent implements OnInit {
   doctor: Doctor= {
     firstName:'',
     lastName:'',
-    username:'',
     password:'',
     confirmPassword:'',
-    email:''
+    email:'',
+    birthday:'',
+    phoneNumber:''
   }
   constructor(
     public flashMessagesService: FlashMessagesService,

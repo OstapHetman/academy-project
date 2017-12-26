@@ -14,10 +14,11 @@ export class DoctorDetailsComponent implements OnInit {
   doctor: Doctor= {
     firstName:'',
     lastName:'',
-    username:'',
     password:'',
     confirmPassword:'',
-    email:''
+    email:'',
+    birthday:'',
+    phoneNumber:''
   }
   constructor(
     public doctorService: DoctorService,

@@ -10,10 +10,11 @@ export class AuthService {
   doctor: Doctor= {
     firstName:'',
     lastName:'',
-    username:'',
     password:'',
     confirmPassword:'',
-    email:''
+    email:'',
+    birthday:'',
+    phoneNumber:''
   }
 
   // Login user
