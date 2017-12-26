@@ -5,7 +5,9 @@ import { Injectable } from '@angular/core';
 export class SettingsService {
   settings: Settings = {
     disableCareplanOnAdd: false,
-    disableCareplanOnEdit: false
+    disableCareplanOnEdit: false,
+    disableMedicalStateOnAdd: false,
+    disableMedicalStateOnEdit: false
   }
   constructor() { }
 

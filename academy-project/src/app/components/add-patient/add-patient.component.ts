@@ -30,6 +30,7 @@ export class AddPatientComponent implements OnInit {
     birthday:''
   }
   disableCareplanOnAdd: boolean = false;
+  disableMedicalStateOnAdd: boolean = false;
 
   constructor(
     public flashMessagesService: FlashMessagesService,
@@ -42,7 +43,9 @@ export class AddPatientComponent implements OnInit {
 
   ngOnInit() {
     this._titleService.setTitle('HealthCare | Add patient');
+
     this.disableCareplanOnAdd = this.setting.getSettings().disableCareplanOnAdd;
+    this.disableMedicalStateOnAdd = this.setting.getSettings().disableMedicalStateOnAdd;
   }
   onSubmit({value, valid}: {value:Patient, valid:boolean}) {
     if(!valid) {

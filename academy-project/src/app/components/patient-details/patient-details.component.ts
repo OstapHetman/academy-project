@@ -4,6 +4,7 @@ import { Patient } from './../../models/Patient';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { TextMaskModule } from 'angular2-text-mask';
+import { SettingsService } from './../../services/settings.service';
 
 @Component({
   selector: 'app-patient-details',
@@ -22,20 +23,25 @@ export class PatientDetailsComponent implements OnInit {
     email:'',
     birthday:''
   }
-
+  disableCareplanOnEdit: boolean = false;
+  disableMedicalStateOnEdit: boolean = false;
 
   constructor(
     public patientService: PatientService,
     public router: Router,
     public route: ActivatedRoute,
-    public flashMessagesService: FlashMessagesService
+    public flashMessagesService: FlashMessagesService,
+    public setting: SettingsService
   ) { }
 
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
     this.patientService.getPatient(this.id).subscribe(patient =>{
         this.patient = patient;  
-      });
+    });
+
+    this.disableCareplanOnEdit = this.setting.getSettings().disableCareplanOnEdit;
+    this.disableMedicalStateOnEdit = this.setting.getSettings().disableMedicalStateOnEdit;
   }
   onDeleteClick() {
     if(confirm("Are you sure to delete?")){

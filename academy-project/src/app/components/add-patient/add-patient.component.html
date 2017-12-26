@@ -67,7 +67,7 @@
             <div class="form-group">
                 <label for="mediacalState">Mediacal State</label>
                 <!-- <input type="text" class="form-control"  > -->
-                <select class="custom-select" name="mediacalState" [(ngModel)]="patient.mediacalState">
+                <select class="custom-select" name="mediacalState" [(ngModel)]="patient.mediacalState" [disabled]="disableMedicalStateOnAdd">
                     <option value="Undetermined">Undetermined</option>
                     <option value="Good">Good</option>
                     <option value="Fair">Fair</option>
