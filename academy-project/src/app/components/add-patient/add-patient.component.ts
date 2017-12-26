@@ -6,6 +6,9 @@ import { Title } from "@angular/platform-browser";
 import { Router } from '@angular/router';
 import { Patient } from '../../models/Patient';
 import { FlashMessagesService } from 'angular2-flash-messages';
+import { TextMaskModule } from 'angular2-text-mask';
+import emailMask from 'text-mask-addons/dist/emailMask';
+
 
 @Component({
   selector: 'app-add-patient',
@@ -44,6 +47,6 @@ export class AddPatientComponent implements OnInit {
       this.router.navigate(['/dashboard', {outlets: {content: ['patients']}}]);
     }
     }
-
- 
+    public myModel = ''
+    public mask = ['(', /[0-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
 }

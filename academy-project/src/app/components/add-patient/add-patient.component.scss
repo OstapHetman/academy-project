@@ -1,0 +1,17 @@
+$backClr: #f09d41;
+a.back {
+    color: $backClr;
+}
+
+.card-header {
+    font-weight: 600;
+}
+
+form {
+    label {
+        font-weight: 500;
+        span {
+            color: red;
+        }
+    }
+}

@@ -1,11 +1,11 @@
 <div class="row">
     <div class="col-md-16">
-        <a href="#" [routerLink]="['/dashboard', {outlets: {content: ['patients']}}]"><i class="fa fa-undo" aria-hidden="true"></i> Back to Patients</a>
+        <a class="back" href="#" [routerLink]="['/dashboard', {outlets: {content: ['patients']}}]"><i class="fa fa-undo" aria-hidden="true"></i> Back to Patients</a>
     </div>
 </div>
 <div class="card">
     <div class="card-header">
-        <p>Edit a patient</p><button class="btn btn-danger pull-right" (click)="onDeleteClick()"><i class="fa fa-trash-o " aria-hidden="true"></i> Delete</button>
+        <p>Edit a patient <i class="fa fa-male" aria-hidden="true"></i></p><button class="btn btn-danger pull-right" (click)="onDeleteClick()"><i class="fa fa-trash-o " aria-hidden="true"></i> Delete</button>
     </div>
     <div class="card-block">
         <form novalidate #f="ngForm" (ngSubmit)="onSubmit(f)">
@@ -49,13 +49,24 @@
             </div>
 
             <div class="form-group">
-                <label for="phone">Patient phone-number</label>
-                <input type="tel" class="form-control" name="phone" [(ngModel)]="patient.phoneNumber">
+                <label for="phoneNumber">Patient phone-number</label>
+                <input placeholder="(093)909-9024" type="text" [textMask]="{mask: mask}" class="form-control" name="phoneNumber" [(ngModel)]="patient.phoneNumber">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Patient email</label>
+                <input placeholder="example@gmail.com" type="text" class="form-control" name="email" [(ngModel)]="patient.email">
             </div>
 
             <div class="form-group">
                 <label for="mediacalState">Mediacal State</label>
-                <input type="text" class="form-control" name="mediacalState" [(ngModel)]="patient.mediacalState">
+                <select class="custom-select" name="mediacalState" [(ngModel)]="patient.mediacalState">
+                    <option value="Undetermined">Undetermined</option>
+                    <option value="Good">Good</option>
+                    <option value="Fair">Fair</option>
+                    <option value="Serious">Serious</option>
+                    <option value="Critical">Critical</option>
+                  </select>
             </div>
 
             <div class="form-group">
@@ -63,7 +74,7 @@
                 <textarea class="form-control" cols="20" name="carePlan" [(ngModel)]="patient.carePlan"></textarea>
             </div>
 
-            <input type="submit" class="btn btn-primary btn-block" value="Update">
+            <input type="submit" class="btn btn-success btn-block" value="Update">
         </form>
     </div>
 </div>

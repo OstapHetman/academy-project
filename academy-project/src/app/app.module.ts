@@ -8,6 +8,7 @@ import { Title } from '@angular/platform-browser';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
+import { TextMaskModule } from 'angular2-text-mask';
 
 // AngularFire Imports
 import { Observable } from 'rxjs/Observable';
@@ -101,7 +102,8 @@ const routes: Routes = [
     FlashMessagesModule.forRoot(),
     NgxPaginationModule,
     HttpClientModule,
-    HttpModule
+    HttpModule,
+    TextMaskModule
   ],
   providers: [AngularFireAuth,AngularFireDatabase,PatientService,DoctorService,AuthService,Title, AuthGuard, UploadService, WeatherService, HttpClientModule, HttpModule],
   bootstrap: [AppComponent]

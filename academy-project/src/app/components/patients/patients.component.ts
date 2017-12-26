@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,  ElementRef } from '@angular/core';
 import { Router} from '@angular/router';
 import { Title } from "@angular/platform-browser";
 import { PatientService } from '../../services/patient.service';
@@ -10,13 +10,16 @@ import { FilterPipe } from './../../pipes/filter.pipe';
   templateUrl: './patients.component.html',
   styleUrls: ['./patients.component.scss']
 })
+
 export class PatientsComponent implements OnInit {
   patients:any[];
   totalPatients: number;
+  
 
   constructor(
     public patientService: PatientService,
-    private _titleService: Title
+    private _titleService: Title,
+    public element: ElementRef
   ) {}
 
   ngOnInit() {

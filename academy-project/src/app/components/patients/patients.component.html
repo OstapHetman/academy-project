@@ -1,9 +1,9 @@
 <div class="row">
     <div class="col-md-6">
-        <h5 class="text-muted">Total Patients: {{totalPatients}}</h5>
+        <h5 class="text-muted total-patients">Total Patients: {{totalPatients}}</h5>
     </div>
     <div class="col-md-6 pull-right">
-        <a href="#" [routerLink]="['/dashboard', {outlets: {content: 'add-patient'}}]"><i class="fa fa-plus"></i> Add new Patient</a>
+        <a class="add-new-patient" href="#" [routerLink]="['/dashboard', {outlets: {content: 'add-patient'}}]"><i class="fa fa-plus"></i> Add new Patient</a>
         <form class="bd-search hidden-sm-down pull-right">
             <input type="text" class="form-control" id="search-input" placeholder="Search..." [(ngModel)]="term" name="search">
             <div class="dropdown-menu bd-search-results" id="search-results"></div>
@@ -24,13 +24,14 @@
     </thead>
     <tbody>
         <tr *ngFor="let patient of patients | filter: term | paginate: { itemsPerPage: 5, currentPage: p }">
-            <td>{{patient.$key}}</td>
-            <td class="text-left">{{patient.firstName}} {{patient.lastName}} <img src="{{patient.photoUrl}}" alt=""> </td>
+            <!-- <td>{{patient.$key}}</td> -->
+            <td></td>
+            <td class="text-center">{{patient.firstName}} {{patient.lastName}} <img src="{{patient.photoUrl}}" alt=""> </td>
             <td>{{patient.ssn}} </td>
-            <td>{{patient.mediacalState}} </td>
-            <td>{{patient.carePlan}} </td>
+            <td class="medicalState" #myname>{{patient.mediacalState}}</td>
+            <td>{{patient.carePlan}}</td>
             <td>
-                <a href="#" class="btn" [routerLink]="['/dashboard', {outlets: {content: 'patient/'+patient.$key}}]"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                <a href="#" class="btn view-more" [routerLink]="['/dashboard', {outlets: {content: 'patient/'+patient.$key}}]"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
             </td>
         </tr>
     </tbody>

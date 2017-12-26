@@ -1,18 +1,18 @@
 <div class="row">
     <div class="col-md-6">
-        <a href="#" [routerLink]="['/dashboard', {outlets: {content: ['patients']}}]"><i class="fa fa-undo" aria-hidden="true"></i> Back to Patients</a>
+        <a href="#" class="back" [routerLink]="['/dashboard', {outlets: {content: ['patients']}}]"><i class="fa fa-undo" aria-hidden="true"></i> Back to Patients</a>
     </div>
 </div>
 <div class="card">
     <div class="card-header">
-        Add new Patient
+        Add new Patient <i class="fa fa-male" aria-hidden="true"></i>
     </div>
     <div class="card-block">
         <form novalidate #f="ngForm" (ngSubmit)="onSubmit(f)">
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="firstName">FirstName *</label>
+                        <label for="firstName">FirstName <span>*</span></label>
                         <input type="text" class="form-control" name="firstName" [(ngModel)]="patient.firstName" #patientFirstName="ngModel" minlength="2" required>
                         <div *ngIf="patientFirstName.errors?.minlength && patientFirstName.touched" class="alert alert-danger">
                             FirstName is required
@@ -25,7 +25,7 @@
 
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="lastName">LastName *</label>
+                        <label for="lastName">LastName  <span>*</span></label>
                         <input type="text" class="form-control" name="lastName" [(ngModel)]="patient.lastName" #patientLastName="ngModel" minlength="2" required>
                         <div *ngIf="patientLastName.errors?.minlength && patientLastName.touched" class="alert alert-danger">
                             LastName is required
@@ -39,7 +39,7 @@
 
 
             <div class="form-group">
-                <label for="ssn">SSN *</label>
+                <label for="ssn">SSN  <span>*</span></label>
                 <input type="text" class="form-control" name="ssn" [(ngModel)]="patient.ssn" #patientSsn="ngModel" minlength="10" required>
                 <div *ngIf="patientSsn.errors?.minlength && patientSsn.touched" class="alert alert-danger">
                     LastName is required
@@ -51,24 +51,34 @@
 
             <div class="form-group">
                 <label for="phoneNumber">Patient phone-number</label>
-                <input type="tel" class="form-control" name="phoneNumber" [(ngModel)]="patient.phoneNumber">
+                <input placeholder="(093)909-9024" type="text" [textMask]="{mask: mask}" class="form-control" name="phoneNumber" [(ngModel)]="patient.phoneNumber">
             </div>
-            <!-- <div class="form-group">
-                <label for="patientPhoto">Patient photo</label>
-                <input type="file" class="form-control" (change)="detectFiles($event)">
-            </div> -->
+
+            <div class="form-group">
+                <label for="email">Patient email</label>
+                <input placeholder="example@gmail.com" type="text" class="form-control" name="email" [(ngModel)]="patient.email">
+            </div>
 
             <div class="form-group">
                 <label for="mediacalState">Mediacal State</label>
-                <input type="text" class="form-control" name="mediacalState" [(ngModel)]="patient.mediacalState">
+                <!-- <input type="text" class="form-control"  > -->
+                <select class="custom-select" name="mediacalState" [(ngModel)]="patient.mediacalState">
+                    <option value="Undetermined">Undetermined</option>
+                    <option value="Good">Good</option>
+                    <option value="Fair">Fair</option>
+                    <option value="Serious">Serious</option>
+                    <option value="Critical">Critical</option>
+                  </select>
             </div>
+
+
 
             <div class="form-group">
                 <label for="carePlan">Care Plan</label>
                 <textarea class="form-control" cols="20" name="carePlan" [(ngModel)]="patient.carePlan"></textarea>
             </div>
 
-            <input type="submit" class="btn btn-primary btn-block" value="Submit">
+            <input type="submit" class="btn btn-success btn-block" value="Submit">
         </form>
     </div>
 </div>
